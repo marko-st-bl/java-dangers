@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Dangers Info | Aid</title>
+	<h:outputStylesheet name="styles.css" />
+</h:head>
+<h:body>
+	<section class="page-section bg-light">
+		<div class="container justify-content-center">
+			<div class="text-center">
+				<h2 class="section-heading text-uppercase text-primary">AID</h2>
+				<h3 class="section-subheading text-muted">Seek help? Feel out
+					the form and someone will come to help.</h3>
+			</div>
+			<h:form id="aid-form">
+				<div class="row justify-content-center">
+					<h:outputText value="Title:"></h:outputText>
+				</div>
+				<div class="form-group row justify-content-center">
+					<h:inputText id="titleInput" class="form-control col-md-6 col-lg-5" name="title"
+						value="#{aidBean.aid.title}" required="true"></h:inputText>
+				</div>
+				<div class="row justify-content-center text-danger">
+						<h:message for="titleInput"></h:message>
+				</div>
+				<div class="row justify-content-center">
+					<h:outputText value="Description:"></h:outputText>
+				</div>
+				<div class="form-group row justify-content-center">
+					<h:inputTextarea id="descriptionInput" class="form-control col-md-6 col-lg-5"
+						name="description" value="#{aidBean.aid.description}" required="true"></h:inputTextarea>
+				</div>
+				<div class="row justify-content-center text-danger">
+						<h:message for="descriptionInput"></h:message>
+				</div>
+				<div class="row justify-content-center">
+					<h:outputText value="Time:"></h:outputText>
+				</div>
+				<div class="form-group row justify-content-center">
+					<h:inputText id="dateInput" class="form-control col-md-6 col-lg-5"
+						converter="javax.faces.DateTime" name="date"
+						value="#{aidBean.aid.date}" required="true">
+						<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+					</h:inputText>
+				</div>
+				<div class="row justify-content-center text-danger">
+						<h:message for="dateInput"></h:message>
+				</div>
+				<div class="row justify-content-center">
+					<h:outputText value="Address:"></h:outputText>
+				</div>
+				<div class="form-group row justify-content-center">
+					<h:inputText id="addressInput" class="form-control col-md-6 col-lg-5" name="address"
+						value="#{aidBean.aid.address}" required="true"></h:inputText>
+				</div>
+				<div class="row justify-content-center text-danger">
+						<h:message for="addressInput"></h:message>
+				</div>
+				<div class="row justify-content-center">
+					<h:outputText value="Category:"></h:outputText>
+				</div>  
+				<div class="form-group row justify-content-center">
+					<h:selectOneMenu class="form-control col-md-6 col-lg-5"
+						name="category" value="#{aidBean.aid.category}">
+						<f:selectItems value="#{categoryBean.categories}" var="c"
+							itemLabel="${c.name}" itemValue="${c.name}" required="true"></f:selectItems>
+					</h:selectOneMenu>
+				</div>
+				<div class="row justify-content-center">
+					<h:outputText value="Image url:"></h:outputText>
+				</div>
+				<div class="form-group row justify-content-center">
+					<h:inputText id="imageInput" class="form-control col-md-6 col-lg-5" name="imageUrl"
+						value="#{aidBean.aid.imageUrl}">
+						<f:validator validatorId="net.etfbl.ip.marko.util.ImageValidator"></f:validator>
+					</h:inputText>
+				</div>
+				<div class="row justify-content-center text-danger">					
+						<h:message for="imageInput"/>
+				</div>
+				<div class="text-center">
+					<h:commandButton id="submit-btn"
+						class="btn btn-primary btn-xl text-uppercase" value="Submit"
+						action="#{aidBean.addAid}"></h:commandButton>
+				</div>
+				<div class="row justify-content-center">
+					<h:outputText class="text-primary" value="${aidBean.message}"></h:outputText>
+				</div>
+			</h:form>
+		</div>
+	</section>
+</h:body>
+</html>

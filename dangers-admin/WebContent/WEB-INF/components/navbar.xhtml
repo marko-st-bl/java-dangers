@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
+	<ui:composition>
+		<div class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="#">Dangers Admin</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-ckntrols="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse ml-auto"
+				id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><h:link value="Home" outcome="index" class="nav-link"></h:link></li>
+					<li class="nav-item"><h:link value="Users" outcome="users" class="nav-link"></h:link>
+					</li>
+					<li class="nav-item"><h:link value="Categories" outcome="categories" class="nav-link"></h:link></li>
+					<li class="nav-item"><h:link value="Aids" outcome="aids" class="nav-link"></h:link></li>
+					<h:form>
+					<li class="nav-item"><h:commandLink value="Logout" action="#{adminBean.logout}" class="nav-link"></h:commandLink></li>
+					</h:form>
+				</ul>
+			</div>
+		</div>
+		</div>
+	</ui:composition>
+</body>
+</html>

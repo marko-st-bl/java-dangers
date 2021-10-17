@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<body>
+	<ui:composition>
+		<section class="page-section">
+		<div class="container">
+			<div class="text-center">
+				<h2 class="section-heading text-uppercase text-primary">USERS</h2>
+				<h3 class="section-subheading text-muted">Manage user accounts.</h3>
+			</div>
+			<h:form>
+				<div class="table-responsive-lg">
+					<h:dataTable class="table table-striped" value="#{userBean.users}"
+						var="user">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="First name"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{user.firstName}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Last Name"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{user.lastName}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Username"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{user.username}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Email"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{user.email}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Country"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{user.country}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Region"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{user.region}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="City"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{user.city}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Status"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{user.status}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Block User"></h:outputText>
+							</f:facet>
+							<h:commandButton class="btn btn-primary" value="block"
+								action="#{userBean.blockUser}">
+								<f:param value="${user.id}" name="id" />
+							</h:commandButton>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Reset password"></h:outputText>
+							</f:facet>
+							<h:commandButton class="btn btn-primary" value="reset"
+								action="#{userBean.resetPassword}">
+								<f:param value="${user.id}" name="id" />
+							</h:commandButton>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Validate User"></h:outputText>
+							</f:facet>
+							<h:commandButton class="btn btn-primary" value="activate"
+								action="#{userBean.activate}">
+								<f:param value="${user.id}" name="id" />
+							</h:commandButton>
+						</h:column>
+					</h:dataTable>
+				</div>
+			</h:form>
+		</div>
+		</section>
+	</ui:composition>
+</body>
+
+</html>

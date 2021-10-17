@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<body>
+	<ui:composition>
+		<div class="container">
+			<div class="row justify-content-around">
+				<div class="card border-primary col-sm-5 col-md-4 col-lg-3 mb-3">
+					<div
+						class="card-header bg-transparent text-primary text-center text-uppercase font-weight-bold">Online
+						users</div>
+					<div class="card-body text-primary">
+						<h1 class="card-title text-center">#{loginBean.numberOfOnlineUsers}</h1>
+					</div>
+				</div>
+				<div class="card border-primary col-sm-5 col-md-4 col-lg-3 mb-3">
+					<div
+						class="card-header bg-transparent text-primary text-center text-uppercase font-weight-bold">Registered
+						users</div>
+					<div class="card-body text-primary">
+						<h1 class="card-title text-center">#{userBean.numberOfRegisteredUsers}</h1>
+					</div>
+				</div>
+			</div>
+			<canvas id="activity"></canvas>
+		</div>
+	</ui:composition>
+</body>
+</html>

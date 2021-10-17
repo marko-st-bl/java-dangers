@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<body>
+	<ui:composition>
+		<section class="page-section">
+		<div class="container">
+			<div class="text-center">
+				<h2 class="section-heading text-uppercase text-primary">Aids</h2>
+				<h3 class="section-subheading text-muted">Manage calls for help.</h3>
+			</div>
+			<h:form>
+				<div class="table-responsive-lg">
+					<h:dataTable class="table table-striped" value="#{aidBean.aids}"
+						var="aid">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Title"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{aid.title}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Description"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{aid.description}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Location"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{aid.address}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Date"></h:outputText>
+							</f:facet>
+							<h:outputText value="${aid.date}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Category"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{aid.category}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Image url"></h:outputText>
+							</f:facet>
+							<h:graphicImage url="#{aid.imageUrl}" style="width: 300px; height: auto;"></h:graphicImage>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Reported"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{aid.reportedAsFalse}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Delete"></h:outputText>
+							</f:facet>
+							<h:commandButton class="btn btn-primary" value="delete"
+								action="#{aidBean.deleteAid}">
+								<f:param value="${aid.id}" name="aidId" />
+							</h:commandButton>
+						</h:column>
+					</h:dataTable>
+				</div>
+			</h:form>
+		</div>
+		</section>
+	</ui:composition>
+</body>
+
+</html>

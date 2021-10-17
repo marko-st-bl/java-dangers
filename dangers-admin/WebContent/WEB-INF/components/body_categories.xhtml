@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<h:body>
+		<ui:composition>
+			<section class="page-section">
+		<div class="container">
+			<div class="text-center">
+				<h2 class="section-heading text-uppercase text-primary">Categories</h2>
+				<h3 class="section-subheading text-muted">Manage categeroies.</h3>
+			</div>
+			<h:form>
+			<div class="row form-group justify-content-end align-items-center">
+				<h:outputText value="Category name:"></h:outputText>
+				<h:inputText id="categoryInput" class="mx-2"  name="name" value="#{categoryBean.category.name}" required="true"></h:inputText>
+				<h:commandButton class="btn btn-primary" value="Add" action="#{categoryBean.addCategory}"></h:commandButton>
+			</div>
+			<div class="row justify-content-end text-danger">
+				<h:message for="categoryInput"/>
+			</div>
+			</h:form>
+				<div class="table-responsive-lg">
+					<h:dataTable class="table table-striped" value="#{categoryBean.categories}"
+						var="category">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="ID"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{category.id}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"></h:outputText>
+							</f:facet>
+							<h:outputText value="#{category.name}"></h:outputText>
+						</h:column>
+					</h:dataTable>
+				</div>
+		</div>
+		</section>
+		</ui:composition>
+	</h:body>
+	</html>

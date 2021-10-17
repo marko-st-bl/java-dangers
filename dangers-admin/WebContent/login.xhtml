@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Dangers Info | Admin</title>
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+<body>
+	<section class="page-section">
+		<div class="container justify-content-center align-items-center">
+			<div class="text-center">
+				<h2 class="section-heading text-uppercase text-primary">Login</h2>
+			</div>
+			<h:form id="login-form">
+				<div class="form-group row justify-content-center">
+					<h:outputLabel value="Username: " />
+				</div>
+				<div class="form-group row justify-content-center">
+					<h:inputText class="form-control col-md-6 col-lg-5"
+						value="#{adminBean.admin.username}" />
+				</div>
+				<div class="form-group row justify-content-center">
+						<h:outputLabel value="Password:" />
+				</div>
+					<div class="form-group row justify-content-center">
+						<h:inputSecret class="form-control col-md-6 col-lg-5" value="#{adminBean.admin.password}" />
+					</div>
+					<div class="text-center">
+						<h:commandButton id="login-btn" class="btn btn-primary btn-xl text-uppercase"
+							value="Login" action="#{adminBean.login}" />
+							<div class="row justify-content-center">
+								<h:message for="login-btn" />
+							</div>
+					</div>
+			</h:form>
+		</div>
+	</section>
+</body>
+</html>

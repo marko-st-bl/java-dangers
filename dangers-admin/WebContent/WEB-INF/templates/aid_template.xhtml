@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <h:outputStylesheet src="resources/styles.css" name="styles.css" library="css" />
+</h:head>
+<h:body>
+    <div id="navbar">
+        <ui:insert name="navbar">
+        	<ui:include src="/WEB-INF/components/navbar.xhtml" />
+        </ui:insert>
+    </div>
+    <br />
+    <div id="users">
+        <ui:insert name="body_categories">
+        	<ui:include src="/WEB-INF/components/body_aids.xhtml" />
+        </ui:insert>
+    </div>
+    <br />
+    <div id="footer">
+        <ui:insert name="footer">
+        	<ui:include src="/WEB-INF/components/footer.xhtml" />
+        </ui:insert>
+    </div>
+</h:body>
+</html>
